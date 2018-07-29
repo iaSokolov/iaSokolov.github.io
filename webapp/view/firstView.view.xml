@@ -1,0 +1,54 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="firstUI5App.controller.firstView" displayBlock="true">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<sap.ui.layout.form:Form xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" id="__form0">
+						<sap.ui.layout.form:formContainers>
+							<sap.ui.layout.form:FormContainer title="Title" id="__container0">
+								<sap.ui.layout.form:formElements>
+									<!--Имя-->
+									<sap.ui.layout.form:FormElement label="{i18n>labelFirstName}" id="labelFirstName">
+										<sap.ui.layout.form:fields>
+											<Input width="100%" id="inputFirstName" value="{path:'view>/firstName', type:'sap.ui.model.type.String'}" placeholder="{i18n>placeholderFirstName}"/>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									<!--Пол-->
+									<sap.ui.layout.form:FormElement label="{i18n>labelSex}" id="labelSex">
+										<RadioButtonGroup width="100%" columns="2" selectedIndex="-1" id="rButtonGroupSex">
+											<buttons>
+												<RadioButton selected="{= ${view>/sex} === 'male' ? true : false }" groupName="rButtonGroupSex" text="{i18n>Male}" id="rButtonMale"/>
+												<RadioButton selected="{= ${view>/sex} === 'female' ? true : false }" groupName="rButtonGroupSex" text="{i18n>Female}" id="rButtonFemale"/>
+											</buttons>
+										</RadioButtonGroup>
+									</sap.ui.layout.form:FormElement>
+									<!--Дата рождения-->
+									<sap.ui.layout.form:FormElement label="{i18n>labelBirthday}" id="labelBirthday">
+										<sap.ui.layout.form:fields>
+											<DatePicker width="100%" id="pickerBirthday" value="{path:'view>/birthday', type:'sap.ui.model.type.Date'}" displayFormat="short"/>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									<sap.ui.layout.form:FormElement label="{i18n>labelCountry}" id="labelCountry">
+										<Select xmlns:core="sap.ui.core" width="100%" id="selectId" items="{country>/country}">
+											<core:ListItem key="{country>key}" text="{country>text}"/>
+										</Select>
+									</sap.ui.layout.form:FormElement>
+									<sap.ui.layout.form:FormElement label="{i18n>labelComment}" id="labelComment">
+										<TextArea id="textComment"/>
+										<sap.ui.layout.form:fields><Button text="Button" width="100px" id="button0" press="onPressButton1"/>
+										</sap.ui.layout.form:fields></sap.ui.layout.form:FormElement>
+								</sap.ui.layout.form:formElements>
+							</sap.ui.layout.form:FormContainer>
+						</sap.ui.layout.form:formContainers>
+						<sap.ui.layout.form:layout>
+							<sap.ui.layout.form:ResponsiveGridLayout id="__layout0"/>
+						</sap.ui.layout.form:layout>
+					</sap.ui.layout.form:Form>
+					<CheckBox id="__box0"/>
+					<Slider id="__slider0"/>
+					
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
